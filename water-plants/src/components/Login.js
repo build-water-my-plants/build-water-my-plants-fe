@@ -21,7 +21,7 @@ class Login extends React.Component {
   login = ev => {
     ev.preventDefault();
     axiosWithAuth()
-      .post("/login", this.state.creds)
+      .post("/api/login", this.state.creds)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
         this.props.history.push("/member");
@@ -32,7 +32,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-       <h4>Login Page</h4>
+       <h2>Login Page</h2>
         <img src="https://images.pexels.com/photos/1845290/pexels-photo-1845290.jpeg?cs=srgb&dl=houseplant-plants-pot-plants-1845290.jpg&fm=jpg" alt="succulents" />
       
         <form onSubmit={this.login}>
