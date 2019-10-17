@@ -7,7 +7,7 @@ export const GET_FAILURE = "GET_FAILURE";
 export const getUsers = () => dispatch => {
     dispatch({type: GET_USERS});
     axios
-    .get('http://localhost:5000/api/users')
+    .get('http://localhost:3000/api/users')
     .then(response => {
       dispatch({ type: GET_USERS, payload: response.data });
     })
@@ -18,7 +18,7 @@ export const getUsers = () => dispatch => {
 export const addUser = (newUser) => dispatch => {
     dispatch( {type:GET_USERS})
   axios
-  .post("http://localhost:5000/api/users", newUser)
+  .post("http://localhost:3000/api/users", newUser)
     .then(response => dispatch(
         { type: GET_SUCCESS,  
            payload:response.data}))
