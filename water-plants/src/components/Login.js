@@ -1,4 +1,5 @@
 import React from "react";
+import {Link } from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class Login extends React.Component {
@@ -52,6 +53,7 @@ class Login extends React.Component {
           />
           <button>Log in</button>
         </form>
+        <h3>Not a member, <Link to="/signup">Signup</Link> here.</h3>
       </div>
     );
   }

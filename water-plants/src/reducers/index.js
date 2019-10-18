@@ -1,7 +1,7 @@
 import {GET_USERS, GET_SUCCESS, GET_FAILURE} from "../actions"
 
 const initialState = {
-  userss:[],
+  users:[],
   getUsers: false,
   addUser: false,
 }
