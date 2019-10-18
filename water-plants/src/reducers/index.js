@@ -1,3 +1,7 @@
+import {
+    GETTING_PLANT_START,
+} from '../actions'
+
 const initialState = {
     plants: [],
     isFetching: false,
