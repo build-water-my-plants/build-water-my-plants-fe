@@ -1,14 +1,6 @@
-import React, {useEffect} from "react";
-import axios from 'axios';
+import React from "react";
 
 const Home = () => {
-
-    useEffect(() => {
-        axios.get('https://watermyplantsbe.herokuapp.com')
-        .then(res => {
-            console.log(res)
-        })
-    },[])
     return(
         <div className="home">
          <h1> Build Water My Plants - FrontEnd</h1>
