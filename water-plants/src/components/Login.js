@@ -2,6 +2,8 @@ import React from "react";
 import {Link } from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
+
+
 class Login extends React.Component {
   state = {
     creds: {
@@ -25,24 +27,35 @@ class Login extends React.Component {
       .post("/api/auth/login", this.state.creds)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
-        this.props.history.push("/user");
+        this.props.history.push("/protected");
       })
       .catch(error => console.log(error));
   };
 
   render() {
     return (
+    
       <div className="login">
-       <h2>Login Page</h2>
-        <img src="https://images.pexels.com/photos/1845290/pexels-photo-1845290.jpeg?cs=srgb&dl=houseplant-plants-pot-plants-1845290.jpg&fm=jpg" alt="succulents" />
-      
+        <div className="form-header">
+        <h2> Water My Plants</h2>
+           <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/>
+        </div>
+
+      <div className="form-box">
         <form onSubmit={this.login}>
+        <h2>Water My Plants helps</h2>
+           <h2>to keep your plants alive.</h2>
           <input
             type="text"
             name="username"
-            placeholder="Username"
+            placeholder="Full Name"
             value={this.state.creds.username}
             onChange={this.handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
           />
           <input
             type="password"
@@ -51,8 +64,14 @@ class Login extends React.Component {
             value={this.state.creds.password}
             onChange={this.handleChange}
           />
+            <input
+              type="text"
+              name="password"
+              placeholder="Confirm Password"
+          />
           <button>Log in</button>
         </form>
+        </div>
         <h3>Not a member, <Link to="/signup">Signup</Link> here.</h3>
       </div>
     );

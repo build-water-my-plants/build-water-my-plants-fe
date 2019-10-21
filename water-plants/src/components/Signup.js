@@ -10,14 +10,31 @@ class Signup extends React.Component {
 
     render() {
         return (
-            <div className="signup" >
-              <h2>Signup Page</h2>
-                <img src="https://images.pexels.com/photos/1877878/pexels-photo-1877878.jpeg?cs=srgb&dl=green-plants-houseplants-indoor-plants-1877878.jpg&fm=jpg" alt="mini greenhouse" />
+          <div className="signup" >
+            <div className="form-header">
+              <h2> Water My Plants</h2>
+                <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/>
+             
+            </div>
+
+          <div className="form-box">
            <form>
-                <input
+           <h2>Water My Plants helps</h2>
+           <h2>to keep your plants alive.</h2>
+              <input
                     type="text"
-                    name="username"
-                    placeholder="Username"
+                    name="fullname"
+                    placeholder="Full Name"
+                />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                />
+                 <input
+                    type="number"
+                    name="phone"
+                    placeholder="Phone Number"
                 />
                  <input
                     type="text"
@@ -29,14 +46,9 @@ class Signup extends React.Component {
                     name="password"
                     placeholder="Confirm Password"
                 />
-                 <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                />
                  <button>Sign up</button>
            </form>
-           
+           </div>
             </div>
         )
     }
