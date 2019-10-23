@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from "./components/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
+import PlantPage from "./components/PlantPage"
+import PrivateRoute from "./components/PrivateRoute"
 import './App.css';
 
 
@@ -26,6 +28,7 @@ function App() {
         <Route  exact path="/" component={Home}/>
         <Route  exact path="/login" component={Login} />
         <Route  exact path="/signup" component={Signup} />
+        <PrivateRoute exact path="protected" component={PlantPage} />
      
     </div>
     </Router>
