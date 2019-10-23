@@ -38,34 +38,29 @@ class Login extends React.Component {
       <div className="login">
         <div className="form-header">
         <h2> Water My Plants</h2>
-           <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/>
+           {/* <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/> */}
         </div>
 
       <div className="form-box">
         <form onSubmit={this.login}>
           <h2>Water My Plants helps</h2>
           <h2>to keep your plants alive.</h2>
-          <i class="fas fa-user">
+          <i className="fas fa-user">
           <input 
             type="text"
             name="username"
-            placeholder="Full Name"
+            placeholder="Username"
+            required = "required"
             value={this.state.creds.username}
             onChange={this.handleChange}
           />
           </i>
-          <i class="far fa-envelope">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-          />
-          </i>
-          <i class="fas fa-unlock-alt">
+          <i className="fas fa-unlock-alt">
           <input
             type="password"
             name="password"
             placeholder="Password"
+            required = "required"
             value={this.state.creds.password}
             onChange={this.handleChange}
           />
