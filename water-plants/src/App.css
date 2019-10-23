@@ -1,8 +1,69 @@
+
+
 .App {
+
+  display: flex;
+
   text-align: center;
+
 }
 
 img{
-  width:400px;
-  height:350px;
+
+  width:100px;
+
+  height:70px;
+
+}
+
+h1, h2{
+
+  font-family:Playball;
+
+  color: green;
+
+}
+
+.form-header{
+
+  background:#77dd77;
+
+}
+
+.form-header h2{
+
+  font-family:Roboto;
+
+  color: white
+
+}
+
+.form-box {
+
+  display: flex;
+
+  width: 300px;
+
+  justify-content: center;
+
+ 
+
+}
+
+input{
+
+  display: flex;
+
+  flex-direction: column;
+
+  background:#75daff;
+
+  width: 250px;
+
+  padding: 10px;
+
+  margin: 5px;
+
+  border-radius: 10px;
+
 }
