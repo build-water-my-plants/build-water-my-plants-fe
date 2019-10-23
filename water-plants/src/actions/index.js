@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 
 export const GETTING_PLANT_START = 'GETTING_PLANT_START'
@@ -11,3 +12,4 @@ export const getPlants = () => {
         })
     }
 }
+

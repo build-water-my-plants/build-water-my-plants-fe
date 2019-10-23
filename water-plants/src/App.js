@@ -20,7 +20,7 @@ function App() {
           </li>
           <li>
               <Link to="/signup">Signup</Link>
-          </li> 
+          </li>
       </ul>
     
         <Route  exact path="/" component={Home}/>
@@ -28,6 +28,7 @@ function App() {
         <Route  exact path="/signup" component={Signup} />
      
     </div>
+    
     </Router>
   );
 }
