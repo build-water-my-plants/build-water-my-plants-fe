@@ -23,7 +23,7 @@ class Signup extends React.Component {
     register = ev => {
       ev.preventDefault();
       axiosWithAuth()
-        .post("http://localhost:3000/api/auth/register", this.state.creds)
+        .post(" https://lambda-water-my-plants.herokuapp.com/api/auth/register", this.state.creds)
         .then(res => {
           localStorage.setItem("token", res.data.payload);
           this.props.history.push("/protected");

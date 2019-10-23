@@ -24,7 +24,7 @@ class Login extends React.Component {
   login = ev => {
     ev.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:3000/api/auth/login", this.state.creds)
+      .post("https://lambda-water-my-plants.herokuapp.com/api/auth/login", this.state.creds)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
         this.props.history.push("/protected");
@@ -75,65 +75,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-
-// import React from "react";
-// import { axiosWithAuth } from "../utils/axiosWithAuth";
-// import {Form, Field, withFormik} from "formik";
-// import * as Yup from "yup";
-
-// const Login = ({errors, touched}) => {
-//   // const [users, setUsers] = useState([])
-//     return(
-//       <div className="login">
-//          <h2> Login</h2>
-//          <div className="form-box">
-//         <Form>
-//           <h2>Water My Plants helps</h2>
-//            <h2>to keep your plants alive.</h2>
-//         <i className="fas fa-user">
-//             <Field type="text" name="username" placeholder="UserName" /> 
-//             {touched.username && errors.username &&(
-//             <p className="error">{errors.username}</p>
-//             )}
-//         </i>
-//         <i className="fas fa-unlock-alt">
-//             <Field type="text" name="password" placeholder="Password"/>
-//             {touched.password && errors.password &&(
-//             <p className="error">{errors.password}</p>
-//             )}
-//         </i>   
-//             <button type="submit">Submit</button>
-//         </Form>
-//         </div>
-//         {/* {users.map (username => (
-//           <p>{username.name}</p>
-//         ))} */}
-//         </div>
-//     )
-// }
-
-// const FormikUsersForm = withFormik({
-//   mapPropsToValues({ username, password  }){
-//     return {
-//     username: username || "",
-//     password: password || ""
-//     }
-//   },
-
-//   validationSchema: Yup.object().shape({
-//     username: Yup.string().required(),
-//     password: Yup.string().min(6).required()
-// }),
-  
-// handleSubmit(values){
-//   // console.log(values)
-//   axiosWithAuth()
-//   .post("api/auth/login",values )
-//   .then(res => console.log(res) )
-//   .catch(error => console.log(error.response))
-// },
-
-// })(Login) 
-
-
-// export default FormikUsersForm
