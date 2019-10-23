@@ -1,28 +1,15 @@
-import axios from "axios";
 
-export const GET_USERS = "GET_USERS";
-export const GET_SUCCESS = "GET_SUCCESS";
-export const GET_FAILURE = "GET_FAILURE";
+import axios from 'axios'
 
-export const getUsers = () => dispatch => {
-    dispatch({type: GET_USERS});
-    axios
-    .get('http://localhost:3000/api/users')
-    .then(response => {
-      dispatch({ type: GET_USERS, payload: response.data });
-    })
-    .catch(err => dispatch({ type: GET_FAILURE, payload: err }));
-};
+export const GETTING_PLANT_START = 'GETTING_PLANT_START'
 
+export const getPlants = () => {
+    return dispatch => {
+        dispatch({type: GETTING_PLANT_START})
+        axios.get()
+        .then(res => {
+            console.log(res)
+        })
+    }
+}
 
-export const addUser = (newUser) => dispatch => {
-    dispatch( {type:GET_USERS})
-  axios
-  .post("http://localhost:3000/api/users", newUser)
-    .then(response => dispatch(
-        { type: GET_SUCCESS,  
-           payload:response.data}))
-    .catch(error => dispatch(
-        { type: GET_FAILURE, 
-        payload: error }));
-  };
