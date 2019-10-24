@@ -23,10 +23,12 @@ class Login extends React.Component {
 
   login = ev => {
     ev.preventDefault();
+    console.log('LOGIN', this.state.creds)
     axiosWithAuth()
       .post("https://lambda-water-my-plants.herokuapp.com/api/auth/login", this.state.creds)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
+        console.log(res)
+        localStorage.setItem("token", res.data.token);
         this.props.history.push("/protected");
       })
       .catch(error => console.log(error));
@@ -49,11 +51,15 @@ class Login extends React.Component {
             type="text"
             name="username"
             placeholder="Username"
+
             required = "required"
+
+
             value={this.state.creds.username}
             onChange={this.handleChange}
           />
           </i>
+
           <i className="fas fa-unlock-alt">
           <input
             type="password"

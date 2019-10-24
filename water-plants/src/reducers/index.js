@@ -1,5 +1,9 @@
 import {
+
   FETCHING_PLANT_START,
+
+   
+
 } from '../actions'
 
 const initialState = {
@@ -10,6 +14,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
 
+
   switch (action.type) {
       case FETCHING_PLANT_START:
           return {
@@ -17,6 +22,9 @@ export const reducer = (state = initialState, action) => {
               isFetching: true,
               error: ''
           }
+
+  
+
 
       default:
           return state;
