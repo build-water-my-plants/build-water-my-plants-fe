@@ -1,61 +1,98 @@
 import React from "react";
+import  axios from "axios";
 
 class Signup extends React.Component {
     state = {
-      creds: {
+      newCreds: {
+        firstName:"",
+        lastName: "",
         username: "",
-        password: ""
-      }
+        password: "",
+        phoneNumber: ""
+       }
+    };
+    handleChange = ev => {
+      this.setState({
+        newCreds: {
+          ...this.state.newCreds,
+          [ev.target.name]: ev.target.value
+        }
+      });
+    };
+  
+    register = ev => {
+      ev.preventDefault();
+      axios
+        .post("https://lambda-water-my-plants.herokuapp.com/api/auth/register", this.state.newCreds)
+        .then(res => {
+          localStorage.setItem("token", res.data.payload);
+          // this.props.addNewUser(this.state.newCreds);
+        
+        })
+        .catch(error => console.log(error));
+        this.setState({newCreds: ""})
     };
 
     render() {
         return (
           <div className="signup" >
+           { console.log(this.state.newCreds)}
+          
             <div className="form-header">
-              <h2> Water My Plants</h2>
-                <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/> 
+              <h2> Signup</h2>
             </div>
           <div className="form-box">
-           <form>
+           <form onSubmit={this.register}>
            <h2>Water My Plants helps</h2>
            <h2>to keep your plants alive.</h2>
-           <i class="fas fa-user">
+           <i className="fas fa-user">
           <input 
             type="text"
-            name="username"
-            placeholder="Full Name"
-            value={this.state.creds.username}
+            name="firstName"
+            placeholder="First Name"
+            required = "required"
+            value={this.state.newCreds.firstName}
             onChange={this.handleChange}
           />
           </i>
-          <i class="far fa-envelope">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
+          <i className="fas fa-user">
+            <input 
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            required = "required"
+            value={this.state.newCreds.lastName}
+            onChange={this.handleChange}
+            />
+          </i>
+           <i className="fas fa-user">
+          <input 
+            type="text"
+            name="username"
+            placeholder="UserName"
+            required = "required"
+            value={this.state.newCreds.username}
+            onChange={this.handleChange}
           />
           </i>
-          <i class="fas fa-phone-alt">
-          <input
-            type="number"
-            name="phone"
-            placeholder="Phone Number"
-          />
-          </i>
-          <i class="fas fa-unlock-alt">
+          <i className="fas fa-unlock-alt">
           <input
             type="password"
             name="password"
             placeholder="Password"
-            value={this.state.creds.password}
+            required = "required"
+            value={this.state.newCreds.password}
             onChange={this.handleChange}
           />
           </i>
-          <i class="fas fa-unlock-alt">
+          <i className="fas fa-phone">
           <input
             type="text"
-            name="password"
-            placeholder="Confirm Password"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            required = "required"
+            value={this.state.newCreds.phoneNumber}
+            onChange={this.handleChange}
           />
           </i>
               <button>Sign up</button>

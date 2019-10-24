@@ -1,21 +1,21 @@
-import React from 'react'
+// import React from 'react'
 
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 
-const PlantCardList = () => {
-    return (
-        <div>
+// const PlantCardList = () => {
+//     return (
+//         <div>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-const mapStateToProps = state => {
-    return {
-        plants: state.plants,
-        isFetching: state.isFetching,
-        error: state.error
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         plants: state.plants,
+//         isFetching: state.isFetching,
+//         error: state.error
+//     }
+// }
 
-export default connect(mapStateToProps, {}) (PlantCardList)
+// export default connect(mapStateToProps, {}) (PlantCardList)
