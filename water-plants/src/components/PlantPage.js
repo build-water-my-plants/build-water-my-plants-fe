@@ -2,7 +2,7 @@ import React from "react";
 
 const PlantPage = props => {
     return (
-        <h3>This is the protected plant page</h3>
+        <h2>Congradulations ! You have reached the protected PlantPage</h2>
     )
 }
 

@@ -37,8 +37,7 @@ class Login extends React.Component {
     
       <div className="login">
         <div className="form-header">
-        <h2> Water My Plants</h2>
-           {/* <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/> */}
+        <h2>Login</h2>
         </div>
 
       <div className="form-box">
