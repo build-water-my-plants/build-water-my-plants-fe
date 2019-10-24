@@ -4,8 +4,8 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 class Signup extends React.Component {
     state = {
       newCreds: {
-        firstname:"",
-        lastname: "",
+        firstName:"",
+        lastName: "",
         username: "",
         password: "",
         phoneNumber: ""
@@ -23,7 +23,7 @@ class Signup extends React.Component {
     register = ev => {
       ev.preventDefault();
       axiosWithAuth()
-        .post(" https://lambda-water-my-plants.herokuapp.com/api/auth/register", this.state.newCreds)
+        .post("https://lambda-water-my-plants.herokuapp.com/api/auth/register", this.state.newCreds)
         .then(res => {
           localStorage.setItem("token", res.data.payload);
           this.props.addNewUser(this.state.newCreds);
@@ -35,6 +35,8 @@ class Signup extends React.Component {
     render() {
         return (
           <div className="signup" >
+           {/* { console.log(this.state.newCreds)} */}
+          
             <div className="form-header">
               <h2> Signup</h2>
             </div>
@@ -45,20 +47,20 @@ class Signup extends React.Component {
            <i className="fas fa-user">
           <input 
             type="text"
-            name="firstname"
+            name="firstName"
             placeholder="First Name"
             required = "required"
-            value={this.state.newCreds.firstname}
+            value={this.state.newCreds.firstName}
             onChange={this.handleChange}
           />
           </i>
           <i className="fas fa-user">
             <input 
             type="text"
-            name="lastname"
+            name="lastName"
             placeholder="Last Name"
             required = "required"
-            value={this.state.newCreds.lastname}
+            value={this.state.newCreds.lastName}
             onChange={this.handleChange}
             />
           </i>
@@ -84,7 +86,7 @@ class Signup extends React.Component {
           </i>
           <i className="fas fa-phone">
           <input
-            type="number"
+            type="text"
             name="phoneNumber"
             placeholder="Phone Number"
             required = "required"

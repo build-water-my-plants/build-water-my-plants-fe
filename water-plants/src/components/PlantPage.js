@@ -1,9 +1,31 @@
-import React from "react";
+import React, {useEffect} from 'react'
 
-const PlantPage = props => {
+import {getPlants} from '../actions/index'
+
+import {connect} from 'react-redux';
+
+
+const PlantPage = (props) => {
+
+    useEffect(() => {
+       props.getPlants()
+    }, [props])
+
+
     return (
-        <h2>Congradulations ! You have reached the protected PlantPage</h2>
+        <div>
+            <h1>Hello</h1>
+        </div>
     )
 }
 
-export default PlantPage
+const mapStateToProps = state => {
+    return {
+        plants: state.plants,
+        isFetching: state.isFetching,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, {getPlants}) (PlantPage)
+// export default PlantPage
