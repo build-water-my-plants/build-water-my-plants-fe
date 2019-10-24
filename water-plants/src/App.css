@@ -10,9 +10,11 @@ h1, h2{
   font-family:Playball;
   color: green;
 }
+
 .form-header{
   background:#77dd77;
 }
+
 .form-header h2{
   font-family:Roboto;
   color: white
@@ -21,8 +23,9 @@ h1, h2{
   display: flex;
   width: 300px;
   justify-content: center;
- 
+  border: 3px solid magenta
 }
+
 input{
   display: flex;
   flex-direction: column;
@@ -32,6 +35,3 @@ input{
   margin: 5px;
   border-radius: 10px;
 }
-
-
-

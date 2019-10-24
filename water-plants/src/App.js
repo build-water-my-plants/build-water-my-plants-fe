@@ -4,6 +4,9 @@ import Home from "./components/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import PlantPage from "./components/PlantPage"
+import PrivateRoute from "./components/PrivateRoute"
+
+
 import './App.css';
 
 
@@ -28,7 +31,11 @@ function App() {
         <Route  exact path="/login" component={Login} />
         <Route  exact path="/signup" component={Signup} />
 
-        {/* <PlantPage /> */}
+        <PrivateRoute exact path="/protected" component={PlantPage} />
+
+
+     
+
      
     </div>
     

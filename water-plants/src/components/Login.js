@@ -25,7 +25,7 @@ class Login extends React.Component {
     ev.preventDefault();
     console.log('LOGIN', this.state.creds)
     axiosWithAuth()
-      .post("/api/auth/login", this.state.creds)
+      .post("https://lambda-water-my-plants.herokuapp.com/api/auth/login", this.state.creds)
       .then(res => {
         console.log(res)
         localStorage.setItem("token", res.data.token);
@@ -39,8 +39,7 @@ class Login extends React.Component {
     
       <div className="login">
         <div className="form-header">
-        <h2> Water My Plants</h2>
-           <img src= "https://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.pnghttps://lambdaschoolstudents.slack.com/files/UL8BGQNQ6/FPGCJGN56/logo_copy.png" alt="logo"/>
+        <h2>Login</h2>
         </div>
 
       <div className="form-box">
@@ -52,22 +51,21 @@ class Login extends React.Component {
             type="text"
             name="username"
             placeholder="Username"
+
+            required = "required"
+
+
             value={this.state.creds.username}
             onChange={this.handleChange}
           />
           </i>
-          {/* <i className="far fa-envelope">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-          />
-          </i> */}
+
           <i className="fas fa-unlock-alt">
           <input
             type="password"
             name="password"
             placeholder="Password"
+            required = "required"
             value={this.state.creds.password}
             onChange={this.handleChange}
           />
