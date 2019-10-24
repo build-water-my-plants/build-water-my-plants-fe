@@ -23,10 +23,12 @@ class Login extends React.Component {
 
   login = ev => {
     ev.preventDefault();
+    console.log('LOGIN', this.state.creds)
     axiosWithAuth()
       .post("/api/auth/login", this.state.creds)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
+        console.log(res)
+        localStorage.setItem("token", res.data.token);
         this.props.history.push("/protected");
       })
       .catch(error => console.log(error));
@@ -45,23 +47,23 @@ class Login extends React.Component {
         <form onSubmit={this.login}>
           <h2>Water My Plants helps</h2>
           <h2>to keep your plants alive.</h2>
-          <i class="fas fa-user">
+          <i className="fas fa-user">
           <input 
             type="text"
             name="username"
-            placeholder="Full Name"
+            placeholder="Username"
             value={this.state.creds.username}
             onChange={this.handleChange}
           />
           </i>
-          <i class="far fa-envelope">
+          {/* <i className="far fa-envelope">
           <input
             type="email"
             name="email"
             placeholder="Email"
           />
-          </i>
-          <i class="fas fa-unlock-alt">
+          </i> */}
+          <i className="fas fa-unlock-alt">
           <input
             type="password"
             name="password"
