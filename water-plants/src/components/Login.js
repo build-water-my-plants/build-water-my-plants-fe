@@ -1,5 +1,8 @@
 import React from "react";
+import {Link } from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+
 
 class Login extends React.Component {
   state = {
@@ -20,38 +23,57 @@ class Login extends React.Component {
 
   login = ev => {
     ev.preventDefault();
+    console.log('LOGIN', this.state.creds)
     axiosWithAuth()
-      .post("/api/login", this.state.creds)
+      .post("https://lambda-water-my-plants.herokuapp.com/api/auth/login", this.state.creds)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
-        this.props.history.push("/member");
+        console.log(res)
+        localStorage.setItem("token", res.data.token);
+        this.props.history.push("/protected");
       })
       .catch(error => console.log(error));
   };
 
   render() {
     return (
+    
       <div className="login">
-       <h2>Login Page</h2>
-        <img src="https://images.pexels.com/photos/1845290/pexels-photo-1845290.jpeg?cs=srgb&dl=houseplant-plants-pot-plants-1845290.jpg&fm=jpg" alt="succulents" />
-      
+        <div className="form-header">
+        <h2>Login</h2>
+        </div>
+
+      <div className="form-box">
         <form onSubmit={this.login}>
-          <input
+          <h2>Water My Plants helps</h2>
+          <h2>to keep your plants alive.</h2>
+          <i className="fas fa-user">
+          <input 
             type="text"
             name="username"
             placeholder="Username"
+
+            required = "required"
+
+
             value={this.state.creds.username}
             onChange={this.handleChange}
           />
+          </i>
+
+          <i className="fas fa-unlock-alt">
           <input
             type="password"
             name="password"
             placeholder="Password"
+            required = "required"
             value={this.state.creds.password}
             onChange={this.handleChange}
           />
+          </i> 
           <button>Log in</button>
         </form>
+        </div>
+        <h3>Not a member, <Link to="/signup">Signup</Link> here.</h3>
       </div>
     );
   }
