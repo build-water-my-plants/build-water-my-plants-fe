@@ -2,8 +2,6 @@ import React from "react";
 import {Link } from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-
-
 class Login extends React.Component {
   state = {
     creds: {

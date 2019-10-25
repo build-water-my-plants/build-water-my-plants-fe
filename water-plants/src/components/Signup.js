@@ -1,5 +1,6 @@
 import React from "react";
-import  axios from "axios";
+// import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class Signup extends React.Component {
     state = {
@@ -19,11 +20,11 @@ class Signup extends React.Component {
         }
       });
     };
-  
+
     register = ev => {
       ev.preventDefault();
-      axios
-        .post("https://lambda-water-my-plants.herokuapp.com/api/auth/register", this.state.newCreds)
+      axiosWithAuth()
+        .post("/api/auth/register", this.state.newCreds)
         .then(res => {
           localStorage.setItem("token", res.data.payload);
           // this.props.addNewUser(this.state.newCreds);
@@ -34,6 +35,8 @@ class Signup extends React.Component {
     };
 
     render() {
+  console.log('signup', this.state.newCreds)
+
         return (
           <div className="signup" >
            { console.log(this.state.newCreds)}

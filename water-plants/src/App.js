@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import PlantPage from "./components/PlantPage"
+import AddPlant from './components/AddPlant'
 import PrivateRoute from "./components/PrivateRoute"
 
 
@@ -29,8 +30,11 @@ function App() {
     
         <Route  exact path="/" component={Home}/>
         <Route  exact path="/login" component={Login} />
+        {/* <Route  exact path="/login" render={(props) =>  <Login {...props} /> } /> */}
         <Route  exact path="/signup" component={Signup} />
 
+
+        <PrivateRoute exact path="/protected" component={AddPlant} />
         <PrivateRoute exact path="/protected" component={PlantPage} />
 
 
