@@ -19,12 +19,7 @@ h1, h2{
   font-family:Roboto;
   color: white
 }
-.form-box {
-  display: flex;
-  width: 300px;
-  justify-content: center;
-  border: 3px solid magenta
-}
+
 
 input{
   display: flex;

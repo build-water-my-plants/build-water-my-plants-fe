@@ -1,6 +1,7 @@
 import React from "react";
 import {Link } from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { Input, Button, Form } from './Styled';
 
 
 
@@ -36,18 +37,17 @@ class Login extends React.Component {
 
   render() {
     return (
-    
+
       <div className="login">
         <div className="form-header">
         <h2>Login</h2>
         </div>
 
       <div className="form-box">
-        <form onSubmit={this.login}>
-          <h2>Water My Plants helps</h2>
-          <h2>to keep your plants alive.</h2>
+        <Form onSubmit={this.login}>
+          <h2>Water My Plants helps<br />to keep your plants alive.</h2>
           <i className="fas fa-user">
-          <input 
+          <Input
             type="text"
             name="username"
             placeholder="Username"
@@ -61,7 +61,7 @@ class Login extends React.Component {
           </i>
 
           <i className="fas fa-unlock-alt">
-          <input
+          <Input
             type="password"
             name="password"
             placeholder="Password"
@@ -69,9 +69,12 @@ class Login extends React.Component {
             value={this.state.creds.password}
             onChange={this.handleChange}
           />
-          </i> 
-          <button>Log in</button>
-        </form>
+          </i>
+          <div>
+            <Button>Log in</Button>
+          </div>
+
+        </Form>
         </div>
         <h3>Not a member, <Link to="/signup">Signup</Link> here.</h3>
       </div>

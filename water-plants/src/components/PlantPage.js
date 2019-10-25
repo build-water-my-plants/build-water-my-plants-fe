@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import UserTable from './UserTable.js';
 import AddUserForm from './AddUserForm.js';
 import EditUserForm from './EditUserForm.js';
@@ -77,4 +77,3 @@ export default function PlantCard(props) {
   )
 
 }
-
