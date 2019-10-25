@@ -9,11 +9,14 @@ export default function PlantCard(props) {
   // THIS WILL CHANGE
 
   const usersData = [
-    { id: 1, plant_type: 'Plant type', plant_name: 'Rose', species: 'Rose', name: 'Jen', watering_schedule: '3', location: 'garden'},
-    {id: 2, plant_type: 'Plant type', plant_name: 'Rose', species: 'Rose', name: 'Jen', watering_schedule: '3', location: 'garden'},
-    {id: 3, plant_type: 'Plant type', plant_name: 'Rose', species: 'Rose', name: 'Jen', watering_schedule: '3', location: 'garden'},
-    {id: 4, plant_type: 'Plant type', plant_name: 'Rose', species: 'Rose', name: 'Jen', watering_schedule: '3', location: 'garden'},
-    {id: 5, plant_type: 'Plant type', plant_name: 'Rose', species: 'Rose', name: 'Jen', watering_schedule: '3', location: 'garden'},
+    { id: 1, species: 'Rose', name: 'Jen', watering_schedule: '3', location: 'Garden'},
+    {id: 2, species: 'Sunflower', name: 'Kevin', watering_schedule: '2', location: 'Garden'},
+    {id: 3, species: 'Succulent', name: 'Jill', watering_schedule: '7', location: 'Shed'},
+    {id: 4, species: 'Cactus', name: 'Brian', watering_schedule: '4', location: 'Kitchen'},
+    {id: 5, species: 'Tulip', name: 'Petunia', watering_schedule: '1', location: 'Kitchen'},
+    {id: 6, species: 'Cactus', name: 'Kelly', watering_schedule: '4', location: 'Kitchen'},
+    {id: 7, species: 'Tulip', name: 'Walt', watering_schedule: '1', location: 'Kitchen'},
+    {id: 8, species: 'Tulip', name: 'Walt', watering_schedule: '3', location: 'Kitchen'},
   ];
 
   const initialFormState = { id: null, plant_type: '', plant_name: '', species: '', name: '', watering_schedule: '', location: ''};
@@ -52,7 +55,7 @@ export default function PlantCard(props) {
       <div className="flex-large">
         {editing ? (
           <div className='workoutform'>
-            <h2>Edit User</h2>
+            <h2>Edit Plant</h2>
             <EditUserForm
               editing={editing}
               setEditing={setEditing}

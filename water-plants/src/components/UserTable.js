@@ -1,36 +1,29 @@
 import React from 'react';
+import {Table, TableRow, TableData, UserButton, ButtonDiv, ImgLogo, TextDiv} from './FormsStyled';
 
 const UserTable = props => (
-  <table>
-    <thead>
-      <tr>
-        <th>Plant Name</th>
-        <th>Species</th>
-        <th>Watering Schedule</th>
-        <th>Location</th>
-      </tr>
-    </thead>
-    <tbody>
-      {props.users.length > 0 ? (
+  <Table>
+    {props.users.length > 0 ? (
         props.users.map(user => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.species}</td>
-            <td>Every {user.watering_schedule} Days</td>
-            <td>{user.location}</td>
-            <td>
-              <button onClick={() => {props.editRow(user)}} className="button muted-button">Edit</button>
-              <button onClick={() => props.deleteUser(user.id)} className="button muted-button">Delete</button>
-            </td>
-          </tr>
+
+          <TableRow key={user.id}>
+            <ImgLogo src={user.pic} alt='I am an image' ></ImgLogo>
+            <TextDiv>
+              <TableData>Plant Name: {user.name}</TableData>
+              <TableData>Species: {user.species}</TableData>
+              <TableData>Watering Schedule: Every {user.watering_schedule} Days</TableData>
+              <TableData>Location: {user.location}</TableData>
+              <ButtonDiv>
+                <UserButton onClick={() => {props.editRow(user)}} className="button muted-button">Edit</UserButton>
+                <UserButton onClick={() => props.deleteUser(user.id)} className="button muted-button">Delete</UserButton>
+              </ButtonDiv>
+            </TextDiv>
+          </TableRow>
         ))
       ) : (
-        <tr>
-          <td colSpan={3}>No users</td>
-        </tr>
-      )}
-    </tbody>
-  </table>
+        <TableData>No users</TableData>
+    )}
+  </Table>
 )
 
 export default UserTable;
