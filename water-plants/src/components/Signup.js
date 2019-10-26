@@ -1,5 +1,6 @@
 import React from "react";
 import  axios from "axios";
+import { Input, Button, Form } from './Styled';
 
 class Signup extends React.Component {
     state = {
@@ -19,7 +20,7 @@ class Signup extends React.Component {
         }
       });
     };
-  
+
     register = ev => {
       ev.preventDefault();
       axios
@@ -27,7 +28,7 @@ class Signup extends React.Component {
         .then(res => {
           localStorage.setItem("token", res.data.payload);
           // this.props.addNewUser(this.state.newCreds);
-        
+
         })
         .catch(error => console.log(error));
         this.setState({newCreds: ""})
@@ -37,16 +38,15 @@ class Signup extends React.Component {
         return (
           <div className="signup" >
            { console.log(this.state.newCreds)}
-          
+
             <div className="form-header">
               <h2> Signup</h2>
             </div>
           <div className="form-box">
-           <form onSubmit={this.register}>
-           <h2>Water My Plants helps</h2>
-           <h2>to keep your plants alive.</h2>
+           <Form onSubmit={this.register}>
+           <h2>Water My Plants helps<br />to keep your plants alive.</h2>
            <i className="fas fa-user">
-          <input 
+          <Input
             type="text"
             name="firstName"
             placeholder="First Name"
@@ -56,7 +56,7 @@ class Signup extends React.Component {
           />
           </i>
           <i className="fas fa-user">
-            <input 
+            <Input
             type="text"
             name="lastName"
             placeholder="Last Name"
@@ -66,7 +66,7 @@ class Signup extends React.Component {
             />
           </i>
            <i className="fas fa-user">
-          <input 
+          <Input
             type="text"
             name="username"
             placeholder="UserName"
@@ -76,7 +76,7 @@ class Signup extends React.Component {
           />
           </i>
           <i className="fas fa-unlock-alt">
-          <input
+          <Input
             type="password"
             name="password"
             placeholder="Password"
@@ -86,7 +86,7 @@ class Signup extends React.Component {
           />
           </i>
           <i className="fas fa-phone">
-          <input
+          <Input
             type="text"
             name="phoneNumber"
             placeholder="Phone Number"
@@ -95,8 +95,11 @@ class Signup extends React.Component {
             onChange={this.handleChange}
           />
           </i>
-              <button>Sign up</button>
-           </form>
+          <div>
+            <Button>Sign up</Button>
+          </div>
+
+        </Form>
            </div>
             </div>
         )
