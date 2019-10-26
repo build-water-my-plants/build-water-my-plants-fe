@@ -24,10 +24,11 @@ class Login extends React.Component {
   login = ev => {
     ev.preventDefault();
     axiosWithAuth()
-      .post("https://lambda-water-my-plants.herokuapp.com/api/auth/login", this.state.creds)
+      .post("/api/auth/login", this.state.creds)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
+        localStorage.setItem("token", res.data.token);
         this.props.history.push("/protected");
+        console.log(res.data)
       })
       .catch(error => console.log(error));
   };
