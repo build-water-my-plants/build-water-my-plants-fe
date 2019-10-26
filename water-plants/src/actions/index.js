@@ -45,10 +45,10 @@ export const postPlant = (newPlant) => dispatch => {
 export const DELETING_PLANT_START =   'DELETING_PLANT_START'
 export const DELETING_PLANT_FAILURE = 'DELETING_PLANT_FAILURE'
 export const DELETING_PLANT_SUCCESS = 'DELETING_PLANT_SUCCESS'
-export const deletePlant = (plantId) => dispatch => {
+export const deletePlant = (id) => dispatch => {
     dispatch({ type: DELETING_PLANT_START})
     axios
-        .delete(`https://lambda-water-my-plants.herokuapp.com/api/plants/${plantId}`)
+        .delete(`https://lambda-water-my-plants.herokuapp.com/api/plants/${id}`)
         .then(res => {
             console.log(res)
             dispatch({ type: DELETING_PLANT_SUCCESS, payload: res.data})
@@ -61,19 +61,19 @@ export const deletePlant = (plantId) => dispatch => {
 
 // ===== UPDATING =====
 
-// export const UPDATING_PLANT_START =   'UPDATING_PLANT_START'
-// export const UPDATING_PLANT_FAILURE = 'UPDATING_PLANT_FAILURE'
-// export const UPDATING_PLANT_SUCCESS = 'UPDATING_PLANT_SUCCESS'
-// export const updatePlant = (plantId) => dispatch => {
-//     dispatch({ type: UPDATING_PLANT_START})
-//     axios
-//         .put(`https://lambda-water-my-plants.herokuapp.com/api/plants/${plantId}`)
-//         .then(res => {
-//             console.log(res)
-//             dispatch({ type: UPDATING_PLANT_SUCCESS, payload: res.data})
-//         })
-//         .catch(err => {
-//             console.log('something terrible happened')
-//             dispatch({ type: UPDATING_PLANT_FAILURE, payload: err})
-//         })
-// }
+export const UPDATING_PLANT_START =   'UPDATING_PLANT_START'
+export const UPDATING_PLANT_FAILURE = 'UPDATING_PLANT_FAILURE'
+export const UPDATING_PLANT_SUCCESS = 'UPDATING_PLANT_SUCCESS'
+export const updatePlant = (plants) => dispatch => {
+    dispatch({ type: UPDATING_PLANT_START})
+    axios
+        .put(`https://lambda-water-my-plants.herokuapp.com/api/plants/${plants.id}`, plants)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: UPDATING_PLANT_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            console.log('something terrible happened')
+            dispatch({ type: UPDATING_PLANT_FAILURE, payload: err})
+        })
+}

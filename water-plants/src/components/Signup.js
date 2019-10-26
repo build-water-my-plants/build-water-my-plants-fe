@@ -1,6 +1,5 @@
 import React from "react";
-// import axios from "axios";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios";
 
 class Signup extends React.Component {
     state = {
@@ -23,7 +22,7 @@ class Signup extends React.Component {
 
     register = ev => {
       ev.preventDefault();
-      axiosWithAuth()
+      axios
         .post("/api/auth/register", this.state.newCreds)
         .then(res => {
           localStorage.setItem("token", res.data.payload);
@@ -35,8 +34,6 @@ class Signup extends React.Component {
     };
 
     render() {
-  console.log('signup', this.state.newCreds)
-
         return (
           <div className="signup" >
            { console.log(this.state.newCreds)}

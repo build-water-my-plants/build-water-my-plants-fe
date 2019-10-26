@@ -9,9 +9,9 @@ import {
   DELETING_PLANT_START,
   DELETING_PLANT_FAILURE,
   DELETING_PLANT_SUCCESS,
-  // UPDATING_PLANT_START,
-  // UPDATING_PLANT_SUCCESS,
-  // UPDATING_PLANT_FAILURE
+  UPDATING_PLANT_START,
+  UPDATING_PLANT_SUCCESS,
+  UPDATING_PLANT_FAILURE
 
    
 
@@ -82,7 +82,8 @@ export const reducer = (state = initialState, action) => {
                       ...state,
                       isFetching: false,
                       // plants: action.payload
-                      plants: state.plants.push(action.payload)
+                      // plants: state.plants.push(action.payload)
+                      plants: state.plants.filter(plant => plant.id !== action.payload)
                   }
               case DELETING_PLANT_FAILURE:
                   return {
@@ -92,28 +93,30 @@ export const reducer = (state = initialState, action) => {
                   }
 
             /* =====UPDATE =====*/
-                  // case UPDATING_PLANT_START:
-                  //     console.log(UPDATING_PLANT_START)
-                  //     return {
-                  //         ...state,
-                  //         isLoading: true,
-                  //         error: ''
-                  //     }
-                  // case UPDATING_PLANT_SUCCESS:
-                  //     console.log(UPDATING_PLANT_SUCCESS)
-                  //     return {
-                  //         ...state,
-                  //         isLoading: false,
-                  //         error: '',
-                  //         plants: action.payload
-                  //     }
-                  // case UPDATING_PLANT_FAILURE:
-                  //     console.log(UPDATING_PLANT_FAILURE)
-                  //     return {
-                  //         ...state,
-                  //         isLoading: false,
-                  //         error: action.payload
-                  //     }
+                  case UPDATING_PLANT_START:
+                      console.log(UPDATING_PLANT_START)
+                      return {
+                          ...state,
+                          isLoading: true,
+                          error: ''
+                      }
+                  case UPDATING_PLANT_SUCCESS:
+                      console.log(UPDATING_PLANT_SUCCESS)
+                      return {
+                          ...state,
+                          isLoading: false,
+                          error: '',
+                          // plants: action.payload
+                          // plants: state.plants.push(action.payload)
+                          plants: state.plants.map(plant => plant.id === action.payload.id ? action.payload : plant)
+                      }
+                  case UPDATING_PLANT_FAILURE:
+                      console.log(UPDATING_PLANT_FAILURE)
+                      return {
+                          ...state,
+                          isLoading: false,
+                          error: action.payload
+                      }
       default:
           return state;
   }
