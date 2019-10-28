@@ -81,3 +81,108 @@ export default function PlantCard(props) {
 
 }
 
+// 401 Error -- Not authenticated with backend???
+// export default function PlantCard(props) {
+//
+//   // This is some dummy data representing some plant cards
+//   // THIS WILL CHANGE
+//
+//   const usersData = useEffect(() => {
+//       axios.get('https://lambda-water-my-plants.herokuapp.com/api/plants')
+//         .then(res => {
+//           console.log(res);
+//           setUsers(res.data.results);
+//         })
+//         .catch(err => {
+//           console.error("ERROR", err);
+//         })
+//     }, []);
+//
+//   const initialFormState = { id: null, type: '', name: '', waterSchedule: '', location: ''};
+//
+//   // Here I want to set any of my states.
+//   const [users, setUsers] = useState([]);
+//
+//   const [editing, setEditing] = useState(false);
+//
+//   const [currentUser, setCurrentUser] = useState(initialFormState);
+//
+//   // Crud Operation
+//   const addUser = user => {
+// 		user.id = users.length + 1
+// 		setUsers([ ...users, user ])
+// 	}
+//
+//   const deleteUser = id => {
+// 		setEditing(false)
+// 		setUsers(users.filter(user => user.id !== id))
+// 	}
+//
+// 	const updateUser = (id, updatedUser) => {
+// 		setEditing(false)
+// 		setUsers(users.map(user => (user.id === id ? updatedUser : user)))
+// 	}
+//
+// 	const editRow = user => {
+// 		setEditing(true)
+// 		setCurrentUser({ id: user.id, name: user.name, type: user.type, waterSchedule: user.waterSchedule, location: user.location })
+// 	}
+//
+//   return(
+//     <div className="container">
+//       <div className="flex-row">
+//       <div className="flex-large">
+//         {editing ? (
+//           <div className='workoutform'>
+//             <h2>Edit Plant</h2>
+//             <EditUserForm
+//               editing={editing}
+//               setEditing={setEditing}
+//               currentUser={currentUser}
+//               updateUser={updateUser}
+//             />
+//           </div>
+//         ) : (
+//           <div>
+//             <h2>Add Plant</h2>
+//             <AddUserForm addUser={addUser} />
+//           </div>
+//         )}
+//       </div>
+//         <div className="flex-large">
+//           <h2>View Plant</h2>
+//           <UserTable key={users.id} users={users} editRow={editRow} deleteUser={deleteUser} />
+//         </div>
+//       </div>
+//     </div>
+//   )
+//
+// }
+//
+//
+// function UserTable({users}) {
+//   return (
+//     <Table>
+//       {users.length > 0 ? (
+//           users.map(user => (
+//
+//             <TableRow key={user.id}>
+//               <ImgLogo src={user.pic} alt='I am an image' ></ImgLogo>
+//               <TextDiv>
+//                 <TableData>Plant Name: {user.name}</TableData>
+//                 <TableData>Type: {user.type}</TableData>
+//                 <TableData>Watering Schedule: {user.waterSchedule}</TableData>
+//                 <TableData>Location: {user.location}</TableData>
+//                 <ButtonDiv>
+//                   <UserButton onClick={() => {users.editRow(user)}} className="button muted-button">Edit</UserButton>
+//                   <UserButton onClick={() => users.deleteUser(user.id)} className="button muted-button">Delete</UserButton>
+//                 </ButtonDiv>
+//               </TextDiv>
+//             </TableRow>
+//           ))
+//         ) : (
+//           <TableData>No users</TableData>
+//       )}
+//     </Table>
+//   );
+// }
