@@ -62,8 +62,9 @@ export const deletePlant = (id) => dispatch => {
 // ===== UPDATING =====
 
 export const UPDATING_PLANT_START =   'UPDATING_PLANT_START'
-export const UPDATING_PLANT_FAILURE = 'UPDATING_PLANT_FAILURE'
 export const UPDATING_PLANT_SUCCESS = 'UPDATING_PLANT_SUCCESS'
+export const UPDATING_PLANT_FAILURE = 'UPDATING_PLANT_FAILURE'
+
 export const updatePlant = (plants) => dispatch => {
     dispatch({ type: UPDATING_PLANT_START})
     axios

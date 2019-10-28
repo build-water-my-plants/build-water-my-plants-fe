@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import {deletePlant, updatePlant} from '../actions'
 
-import {Button, Modal, Card, Header} from 'semantic-ui-react'
+import {Button, Modal, Card} from 'semantic-ui-react'
 
 import './PlantCard.css';
 
@@ -12,7 +12,6 @@ const PlantCard = (props) => {
 console.log("TCL: PlantCard -> props", props)
 const [currentPlant, setCurrentPlant] = useState(props.plant)
 console.log("TCL: PlantCard -> props.plant", props.plant)
-
 const handleChanges = e => {
     setCurrentPlant({...currentPlant, [e.target.name]: e.target.value})
 }
@@ -23,6 +22,8 @@ const handleChanges = e => {
  }
 
  const handleUpdatePlant = e => {
+    e.preventDefault()
+    props.updatePlant(currentPlant)
 
  }
     return (
@@ -48,7 +49,8 @@ const handleChanges = e => {
                                 {/* <Button onClick={() => deletePlant(props.plant.id)}>Delete</Button> */}
                                 <Button onClick={handleDeletePlant}>Delete</Button>
                                 
-                                <Button onClick={() => updatePlant(currentPlant)}>Update</Button>
+                                {/* <Button onClick={_ => updatePlant(currentPlant)}>Update</Button> */}
+                                <Button onClick={handleUpdatePlant}>Update</Button>
                                 </div>
                             </Modal.Content>
                         </Modal>
@@ -75,7 +77,7 @@ const handleChanges = e => {
 
 const mapStateToProps = state => {
     return {
-        plants: state.plants
+        // plants: state.plants
     }
 }
 
