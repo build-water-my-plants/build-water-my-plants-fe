@@ -14,7 +14,8 @@ const PlantPage = (props) => {
 
     return (
         <div>
-            <h1>Hello</h1>
+            <h1>Hello.</h1>
+            <h2>Welcome to your Plant Page.</h2>
         </div>
     )
 }
