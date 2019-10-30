@@ -1,0 +1,11 @@
+[build]
+ command = "yarn build"
+ functions = "functions"
+ publish = "water-plants/build"
+ base = "water-plants"
+
+
+ [[redirects]]
+   from = "/*"
+   to = "/index.html"
+   status = 200
